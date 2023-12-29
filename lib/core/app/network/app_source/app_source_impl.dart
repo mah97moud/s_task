@@ -15,4 +15,18 @@ class AppSourceImpl implements AppSource {
       rethrow;
     }
   }
+
+  @override
+  Future<GeneralResponse> addPlan({
+    required Map<String, dynamic> body,
+  }) async {
+    try {
+      final response = await _appServiceClient.addPlan(
+        body,
+      );
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

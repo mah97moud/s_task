@@ -16,7 +16,8 @@ extension ToPlanDataModel on PlanData {
       percentage3: percentage3,
       numberBot: numberBot,
       planDesc: planDesc?.map((e) => e.toPlanDescModel()).toList(),
-      telegramGroups: telegramGroups?.map((e) => e.toTelegramGroupModel()).toList(),
+      telegramGroups:
+          telegramGroups?.map((e) => e.toTelegramGroupModel()).toList(),
     );
   }
 }

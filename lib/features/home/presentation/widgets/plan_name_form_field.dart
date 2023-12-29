@@ -12,9 +12,16 @@ class PlanNameFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: _nameController,
-      onTapOutside: (e){
+      onTapOutside: (e) {
         FocusScope.of(context).requestFocus(FocusNode());
       },
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter some text';
+        } 
+        return null;
+      },
+      textInputAction: TextInputAction.next, 
       decoration: const InputDecoration(
         hintText: 'Name of the plan',
         labelText: 'Name',
