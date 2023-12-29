@@ -18,6 +18,11 @@ class HomeView extends StatelessWidget {
           title: const Text('Home'),
         ),
         body: const HomeViewBody(),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {},
+          label: const Text('Add Plan'),
+          icon: const Icon(Icons.add),
+        )
       ),
     );
   }
