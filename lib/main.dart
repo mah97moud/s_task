@@ -9,7 +9,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initDI();
 
-  Bloc.observer =  AppBlocObserver();
+  Bloc.observer = AppBlocObserver();
   runApp(const MyApp());
 }
 
@@ -25,13 +25,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.deepPurple,
-          brightness: Brightness.dark,),
+          brightness: Brightness.dark,
+        ),
         useMaterial3: true,
-        
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+          )
+        )
       ),
-      home: const HomeView( ),
+      home: const HomeView(),
     );
   }
 }
-
- 

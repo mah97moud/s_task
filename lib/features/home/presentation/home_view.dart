@@ -4,6 +4,8 @@ import 'package:s_task/core/app/di.dart';
 import 'package:s_task/features/home/managers/home_cubit/home_cubit.dart';
 import 'package:s_task/features/home/presentation/widgets/home_view_body.dart';
 
+import 'add_plan_view.dart';
+
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
@@ -19,7 +21,13 @@ class HomeView extends StatelessWidget {
         ),
         body: const HomeViewBody(),
         floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {},
+          onPressed: () async {
+            final result = await Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const AddPlanView(),
+              )
+            );
+          },
           label: const Text('Add Plan'),
           icon: const Icon(Icons.add),
         )
