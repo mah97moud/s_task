@@ -15,4 +15,7 @@ abstract class Repository {
   Future<Result<GeneralModel, Exception>> addPlan({
     required Map<String, dynamic> body,
   });
+  Future<Result<GeneralModel, Exception>> deletePlan({
+    required String id,
+  });
 }

@@ -29,4 +29,16 @@ class AppSourceImpl implements AppSource {
       rethrow;
     }
   }
+
+  @override
+  Future<GeneralResponse> deletePlan({required String id}) async {
+    try {
+      final response = await _appServiceClient.deletePlan(
+        id,
+      );
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

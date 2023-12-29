@@ -45,4 +45,23 @@ class HomeRepositoryImpl implements Repository {
       return Failure(error: e, message: ErrorHandler.handle(e).message);
     }
   }
+
+  @override
+  Future<Result<GeneralModel, Exception>> deletePlan(
+      {required String id}) async {
+    final isConnected = await _networkInfo.isConnected;
+
+    if (!isConnected) {
+      return Failure(error: Exception(), message: 'No internet connection');
+    }
+
+    try {
+      final response = await _appSource.deletePlan(
+        id: id,
+      );
+      return Success(data: response.toGeneralModel);
+    } on Exception catch (e) {
+      return Failure(error: e, message: ErrorHandler.handle(e).message);
+    }
+  }
 }

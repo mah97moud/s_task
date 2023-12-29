@@ -7,6 +7,9 @@ part 'app_source_impl.dart';
 abstract class AppSource {
   Future<List<PlanData>> getPlans();
   Future<GeneralResponse> addPlan({
-   required Map<String, dynamic> body,
+    required Map<String, dynamic> body,
+  });
+  Future<GeneralResponse> deletePlan({
+    required String id,
   });
 }

@@ -24,4 +24,9 @@ abstract class AppServiceClient {
   Future<GeneralResponse> addPlan(
     @Body() Map<String, dynamic> body,
   );
+
+  @DELETE('${EndPoints.plans}/{id}')
+  Future<GeneralResponse> deletePlan( 
+    @Path('id') String id,
+  );
 }

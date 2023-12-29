@@ -21,4 +21,6 @@ class HomeCubit extends Cubit<HomeState> {
       failure: (error, message) => emit(HomeFailure(message: message)),
     );
   }
+
+ 
 }
