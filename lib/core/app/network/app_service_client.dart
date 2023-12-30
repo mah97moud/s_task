@@ -28,8 +28,10 @@ abstract class AppServiceClient {
   Future<GeneralResponse> deletePlan(
     @Path('id') String id,
   );
+
   @PUT('${EndPoints.plans}/{id}')
-  Future<GeneralResponse> updatePlan(
+  Future<int> updatePlan(
     @Path('id') String id,
+    @Body() Map<String, dynamic> body,
   );
 }

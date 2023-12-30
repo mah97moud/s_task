@@ -18,4 +18,11 @@ abstract class Repository {
   Future<Result<GeneralModel, Exception>> deletePlan({
     required String id,
   });
+
+  Future<Result<GeneralModel, Exception>> updatePlan({
+    required String id,
+    required Map<String, dynamic> body,
+  }){
+    throw UnimplementedError();
+  }
 }

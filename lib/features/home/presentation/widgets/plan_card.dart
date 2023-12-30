@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:s_task/features/home/data/models/plan_model/plan_data_model.dart';
 import 'package:s_task/features/home/presentation/widgets/delete_plan_button.dart';
 
+import 'edit_plan_button.dart';
+
 class PlanCard extends StatelessWidget {
   const PlanCard({
     super.key,
@@ -23,6 +25,7 @@ class PlanCard extends StatelessWidget {
               children: [
                 Text(plan.name),
                 const Spacer(),
+                EditPlanButton(plan: plan),
                 DeletePlanButton(plan: plan)
               ],
             ),

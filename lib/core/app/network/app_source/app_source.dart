@@ -12,4 +12,8 @@ abstract class AppSource {
   Future<GeneralResponse> deletePlan({
     required String id,
   });
+  Future<GeneralResponse> updatePlan({
+    required String id,
+    required Map<String, dynamic> body,
+  });
 }

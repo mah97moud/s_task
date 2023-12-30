@@ -1,6 +1,6 @@
 part of '../../../core/app/network/repository/repository.dart';
 
-class HomeRepositoryImpl implements Repository {
+class HomeRepositoryImpl extends Repository {
   final AppSource _appSource;
   final NetworkInfo _networkInfo;
 
@@ -47,8 +47,9 @@ class HomeRepositoryImpl implements Repository {
   }
 
   @override
-  Future<Result<GeneralModel, Exception>> deletePlan(
-      {required String id}) async {
+  Future<Result<GeneralModel, Exception>> deletePlan({
+    required String id,
+  }) async {
     final isConnected = await _networkInfo.isConnected;
 
     if (!isConnected) {
@@ -58,6 +59,28 @@ class HomeRepositoryImpl implements Repository {
     try {
       final response = await _appSource.deletePlan(
         id: id,
+      );
+      return Success(data: response.toGeneralModel);
+    } on Exception catch (e) {
+      return Failure(error: e, message: ErrorHandler.handle(e).message);
+    }
+  }
+
+  @override
+  Future<Result<GeneralModel, Exception>> updatePlan({
+    required String id,
+    required Map<String, dynamic> body,
+  }) async {
+    final isConnected = await _networkInfo.isConnected;
+
+    if (!isConnected) {
+      return Failure(error: Exception(), message: 'No internet connection');
+    }
+
+    try {
+      final response = await _appSource.updatePlan(
+        id: id,
+        body: body,
       );
       return Success(data: response.toGeneralModel);
     } on Exception catch (e) {

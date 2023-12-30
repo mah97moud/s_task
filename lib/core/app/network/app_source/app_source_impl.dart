@@ -41,4 +41,25 @@ class AppSourceImpl implements AppSource {
       rethrow;
     }
   }
+
+  @override
+  Future<GeneralResponse> updatePlan({
+    required String id,
+    required Map<String, dynamic> body,
+  }) async {
+    try {
+      final response = await _appServiceClient.updatePlan(
+        id,
+        body,
+      );
+
+      if (response != 150) {
+        return const GeneralResponse(message: 'Update plan successfully');
+      } else {
+        return const GeneralResponse(message: 'Update plan failed');
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:s_task/features/home/presentation/add_plan_view.dart';
+import 'package:s_task/features/home/presentation/add_edit_plan_view.dart';
 
 import '../../managers/plans_cubit/plans_cubit.dart';
 
@@ -18,7 +18,7 @@ class AddPlanFloatingAction extends StatelessWidget {
             final readHomeCubit = context.read<PlansCubit>();
             final result = await Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => const AddPlanView(),
+                builder: (context) => const AddEditPlanView(),
               ),
             );
     
