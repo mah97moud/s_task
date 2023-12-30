@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:s_task/features/home/managers/home_cubit/home_cubit.dart';
 import 'package:s_task/features/home/presentation/add_plan_view.dart';
+
+import '../../managers/plans_cubit/plans_cubit.dart';
 
 class AddPlanFloatingAction extends StatelessWidget {
   const AddPlanFloatingAction({
@@ -10,11 +11,11 @@ class AddPlanFloatingAction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
+    return BlocBuilder<PlansCubit, PlansState>(
       builder: (context, state) {
         return FloatingActionButton.extended(
           onPressed: () async {
-            final readHomeCubit = context.read<HomeCubit>();
+            final readHomeCubit = context.read<PlansCubit>();
             final result = await Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => const AddPlanView(),

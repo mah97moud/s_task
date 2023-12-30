@@ -10,7 +10,7 @@ part 'app_service_client.g.dart';
 
 @RestApi(
   baseUrl: baseUrl,
-) 
+)
 abstract class AppServiceClient {
   factory AppServiceClient(
     Dio dio, {
@@ -20,13 +20,16 @@ abstract class AppServiceClient {
   @GET(EndPoints.plans)
   Future<PlanResponse> getPlans();
   @POST(EndPoints.plans)
-
   Future<GeneralResponse> addPlan(
     @Body() Map<String, dynamic> body,
   );
 
   @DELETE('${EndPoints.plans}/{id}')
-  Future<GeneralResponse> deletePlan( 
+  Future<GeneralResponse> deletePlan(
+    @Path('id') String id,
+  );
+  @PUT('${EndPoints.plans}/{id}')
+  Future<GeneralResponse> updatePlan(
     @Path('id') String id,
   );
 }
